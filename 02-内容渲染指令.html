@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <p v-text="username"></p>
+        <p v-text="pwd">密码:</p>
+        <!-- v-text 会覆盖标签内容 -->
+        <hr>
+        <p>姓名:{{username}}</p>
+        <p>性别:{{pwd}}</p>
+        <hr>
+        <p v-html="info"></p>
+        <!-- v-html 带标签的字符串渲染成真正的HTML内容 -->
+
+    </div>
+    
+
+    <script src="./lib/vue-2.6.12.js"></script>
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                username: 'zhangsan',
+                pwd: '1q2w3e',
+                info:'<h4 style="color:red">$$$$</h4>'
+            }
+        })
+
+
+
+    </script>
+</body>
+</html>

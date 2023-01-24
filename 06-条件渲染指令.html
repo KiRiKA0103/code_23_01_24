@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <p v-if="flag">这是被v-if控制的元素</p>
+        <p v-show="flag">这是被v-show控制的元素</p>
+
+        <span v-if="type === 'A'">A</span>
+        <span v-else-if="type === 'B'">B</span>
+        <span v-else="type === 'C'">C</span>
+
+    </div>
+
+    <script src="./lib/vue-2.6.12.js"></script>
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                flag: true,
+                type:'A'
+            }
+        })
+    </script>
+
+</body>
+
+</html>

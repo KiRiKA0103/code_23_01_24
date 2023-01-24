@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .father{
+            width: 400px;
+            height: 400px;
+            background-color: pink;
+        }
+        .son{
+            width: 200px;
+            height: 200px;
+            background-color: yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="app">
+        <p>count={{count}}</p>
+        <button v-on:click="add(1,$event)">+1</button>
+        <button @click="sub(2)">-2</button>
+
+
+        <a href="https://www.bilibili.com" @click.prevent="show">bilibili</a>
+        <div class="father" @click="show">
+            <div class="son" @click.stop="show"></div>
+        </div>
+
+        <input type="text" @keyup.enter="submit" @keyup.esc="clear">
+
+    </div>
+
+
+    <script src="./lib/vue-2.6.12.js"></script>
+    <script>
+        const vm = new Vue({
+            el: '.app',
+            data: {
+                count: 0,
+            },
+            methods: {
+                add(n, e) {
+                    // vm.count += 1
+                    this.count += n
+                    if (this.count % 2 == 0) {
+                        e.target.style.backgroundColor = 'red'
+                    } else {
+                        e.target.style.backgroundColor = 'blue'
+                    }
+                },
+                sub(n) {
+                    this.count -= n
+                },
+                show(){
+                    console.log('点击了bilibili');
+                },
+                submit(){
+                    console.log('submit');
+                },
+                clear(){
+                    console.log('clear');
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

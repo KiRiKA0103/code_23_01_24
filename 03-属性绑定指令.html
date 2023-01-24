@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="app">
+        <input type="text" v-bind:placeholder="tips">
+        <hr>
+        <img :src="imgUrl" width="200" alt="">
+
+        <hr>
+
+        <p>1 + 2 = {{1+2}}</p>
+        <p>{{tips}}反转的结果是:{{tips.split('').reverse().join('')}}</p>
+
+        <div :class="'box' + index"></div>
+    </div>
+
+    <script src="./lib/vue-2.6.12.js"></script>
+    <script>
+        const vm = new Vue({
+            el: '.app',
+            data: {
+                tips:'请输入用户名',
+                imgUrl:'https://assets.msn.cn/weathermapdata/1/static/svg/72/v6/card/SunnyDayV3.svg',
+                index:3
+            }
+        })
+
+
+
+    </script>
+</body>
+</html>
