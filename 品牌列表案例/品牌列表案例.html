@@ -63,7 +63,7 @@
               <label class="custom-control-label" :for="'cb' + item.id" v-else>已禁用</label>
             </div>
           </td>
-          <td>{{ item.time }}</td>
+          <td>{{ item.time | dateFormat}}</td>
           <td>
             <a href="javascript:;" @click="remove(item.id)">删除</a>
           </td>
@@ -73,7 +73,13 @@
   </div>
 
   <script src="./lib/vue-2.6.12.js"></script>
+  <script src="./lib/dayjs.min.js"></script>
   <script>
+    Vue.filter('dateFormat',function(time){
+        let newTime = dayjs(time).format('YYYY年M月D日 HH:mm:ss')
+        return newTime
+    })
+
     const vm = new Vue({
       el: '#app',
       data: {
